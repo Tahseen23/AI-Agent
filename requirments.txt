@@ -2,3 +2,4 @@ streamlit
 pandas
 loguru
 python-dotenv
+google.generativeai
