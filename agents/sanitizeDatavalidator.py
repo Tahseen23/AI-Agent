@@ -15,8 +15,8 @@ class SanitizeDataValidatorAgent(Agent):
             "Validation:"
         )
         messages = [
-            {"role": "system", "content": system_message},
-            {"role": "user", "content": user_content}
+            {"role": "user", "parts": [{"text": system_message}]},
+            {"role": "user", "parts": [{"text": user_content}]}
         ]
         validation = self.call_gemini(messages)
         return validation

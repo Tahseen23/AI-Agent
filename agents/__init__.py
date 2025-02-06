@@ -15,7 +15,7 @@ class AgentManager:
       'sanitize_data':SanitizeDataTool(max_retries=max_retries,verbose=verbose),
       'summarize_validator':SummarizeValidatorAgent(max_retries=max_retries,verbose=verbose),
       'write_article_validator_agent':WriteArticleValidatorAgent(max_retries=max_retries,verbose=verbose),
-      'sanitize_data_validator_agent':SanitizeDataValidatorAgent(max_retries=max_retries,verbose=verbose),
+      'sanitize_data_validator':SanitizeDataValidatorAgent(max_retries=max_retries,verbose=verbose),
       'refiner':RefinerAgent(max_retries=max_retries,verbose=verbose)
     }
 

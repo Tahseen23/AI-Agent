@@ -6,14 +6,9 @@ class SanitizeDataTool(Agent):
 
     def execute(self, medical_data):
         messages = [
-            {"role": "system", "content": "You are an AI assistant that sanitizes medical data by removing Protected Health Information (PHI)."},
-            {
-                "role": "user",
-                "content": (
-                    "Remove all PHI from the following data:\n\n"
-                    f"{medical_data}\n\nSanitized Data:"
-                )
-            }
+            {"role": "user", "parts": [{"text":"You are an AI assistant that sanitizes medical data by removing Protected Health Information (PHI)."}]},
+            {"role": "user", "parts": [{"text": "Remove all PHI from the following data  and give only informaion How patient was treated and what are the problems patient was facing :\n\n"
+                    f"{medical_data}\n\nSanitized Data:"}]}
         ]
         sanitized_data = self.call_gemini(messages)
         return sanitized_data
