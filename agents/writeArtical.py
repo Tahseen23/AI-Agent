@@ -11,8 +11,8 @@ class WriteArticleTool(Agent):
             userContent+=f"Outline:\n{outline}\n\n"
         userContent+=f"Article:\n"
         messages = [
-            {"role": "system", "content": systemMessage},
-            {"role": "user", "content": userContent}
+            {"role": "user", "parts": [{"text":systemMessage}]},
+            {"role": "user", "parts": [{"text": userContent}]}
         ]
         article = self.call_gemini(messages)
         return article
